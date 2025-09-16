@@ -56,7 +56,7 @@ img { max-width: 100%; display: block; }
   background: var(--blanco);
 }
 .enlace:hover, .enlace:focus-visible {
-  outline: 2px solid var(--azul);
+  outline: 2px solid var(--verdeOscuro);
   outline-offset: 2px;
 }
 .enlace-registro { font-weight: 600; }
@@ -107,8 +107,8 @@ textarea { resize: vertical; min-height: 110px; }
 input::placeholder, textarea::placeholder { color: var(--grismedio); }
 input:focus, select:focus, textarea:focus,
 input:focus-visible, select:focus-visible, textarea:focus-visible {
-  border-color: var(--azul);
-  outline: 2px solid var(--azul);
+  border-color: var(--verdeOscuro);
+  outline: 2px solid var(--verdeOscuro);
   outline-offset: 1px;
 }
 
@@ -124,13 +124,13 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 .boton + .boton { margin-left: 8px; }
 .boton:hover, .boton:focus-visible {
-  outline: 2px solid var(--azul);
+  outline: 2px solid var(--verdeOscuro);
   outline-offset: 2px;
 }
 .boton.alterno { background: var(--grisclaro); }
 .boton.primario {
-  background: var(--azul);
-  border-color: var(--azul);
+  background: var(--verdeOscuro);
+  border-color: var(--verdeOscuro);
   color: var(--blanco);
   font-weight: 600;
 }
@@ -147,7 +147,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 .aviso-fondo   { border-color: var(--amarillo); color: var(--amarillo); }
 .peligro-fondo { border-color: var(--rojo);     color: var(--rojo);     }
-.info-fondo    { border-color: var(--azul);     color: var(--azul);     }
+.info-fondo    { border-color: var(--verdeOscuro);     color: var(--verdeOscuro);     }
 .neutra-fondo  { border-color: var(--grismedio); color: var(--grismedio); }
 
 /* LISTAS */
@@ -189,10 +189,12 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .tabla th, .tabla td { border: 1px solid var(--grisborde); padding: 10px; text-align: left; }
 .tabla thead th { background: var(--grisclaro); color: var(--grisoscuro); }
 
-/* MODAL (oculta el registro en la pagina) */
+/* ========= MODAL =========
+   CSS-only: mostrar por defecto y ocultar cuando el target NO es #auth
+*/
 .modal-overlay {
   position: fixed; inset: 0; z-index: 2000;
-  display: none;
+  display: block;                 
   background: var(--grisclaro);
 }
 .modal {
@@ -213,18 +215,28 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   background: var(--blanco);
 }
 .modal-cerrar:hover, .modal-cerrar:focus-visible {
-  outline: 2px solid var(--azul);
+  outline: 2px solid var(--verdeOscuro);
   outline-offset: 2px;
 }
 
-/* Mostrar modal solo cuando #auth es el target */
+/* Seguí mostrando si el target ES #auth (abrir registro desde el menú) */
 #auth:target { display: block; }
-#auth:target.modal-overlay { display: block; }
+
+/* Ocultar modal cuando el usuario navega a cualquier sección (cierres con #inicio, etc.) */
+html:has(#inicio:target) #auth,
+html:has(#crear-reporte:target) #auth,
+html:has(#mis-reportes:target) #auth,
+html:has(#detalle:target) #auth,
+html:has(#notificaciones:target) #auth {
+  display: none;
+}
+
+/* Área clickeable para cerrar */
 .overlay-close-area { position: absolute; inset: 0; display: block; content: ""; }
 
 /* ACCESIBILIDAD: foco visible */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--azul);
+  outline: 2px solid var(--verdeOscuro);
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -237,3 +249,4 @@ a:focus-visible, button:focus-visible {
   .colspan6 { grid-column: span 12; }
   .modal { margin: 4vh 12px; padding: 18px; }
 }
+
