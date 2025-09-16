@@ -1,0 +1,200 @@
+<!doctype html> 
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>App Incidentes · Prototipo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="barra">
+      <div class="barra-izq">
+        <strong>Incidentes</strong>
+        <a class="enlace enlace-registro" href="#auth">Registro</a>
+      </div>
+      <nav class="navegacion">
+        <a class="enlace" href="#inicio">Inicio</a>
+        <a class="enlace" href="#crear-reporte">Crear Reporte</a>
+        <a class="enlace" href="#mis-reportes">Mis Reportes</a>
+        <a class="enlace" href="#detalle">Detalle</a>
+        <a class="enlace" href="#notificaciones">Notificaciones</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="principal">
+    <!-- 1) INICIO -->
+    <section class="tarjeta">
+      <h2 id="inicio">Inicio</h2>
+      <p class="tenue">Accesos rápidos y resumen del estado general.</p>
+
+      <div class="indicadores">
+        <div class="indicador"><div class="tenue">Abiertos</div><h3>12</h3></div>
+        <div class="indicador"><div class="tenue">En Progreso</div><h3>7</h3></div>
+        <div class="indicador"><div class="tenue">Resueltos</div><h3>31</h3></div>
+      </div>
+
+      <div class="fila">
+        <a class="boton primario" href="#crear-reporte">Crear Reporte</a>
+        <a class="boton" href="#mis-reportes">Mis Reportes</a>
+        <a class="boton alterno" href="#auth">Abrir Registro</a>
+      </div>
+    </section>
+
+    <!-- 3) CREAR REPORTE -->
+    <section class="tarjeta">
+      <h2 id="crear-reporte">Crear Reporte</h2>
+      <div class="fila">
+        <div class="columna">
+          <label>Tipo</label>
+          <select>
+            <option>Bache</option>
+            <option>Alumbrado</option>
+            <option>Residuos</option>
+          </select>
+        </div>
+        <div class="columna">
+          <label>Ubicación</label>
+          <input placeholder="Calle, altura, referencia" />
+        </div>
+      </div>
+      <label>Descripción</label>
+      <textarea rows="4" placeholder="Contanos el problema…"></textarea>
+
+      <div class="fila">
+        <div class="columna">
+          <label>Foto (opcional)</label>
+          <input type="file" />
+        </div>
+        <div class="columna">
+          <label>Fecha</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <p class="tenue">Prioridad sugerida (IA): <span class="etiqueta aviso-fondo">Media</span></p>
+
+      <div class="fila">
+        <a class="boton primario" href="#mis-reportes">Enviar</a>
+        <a class="boton alterno" href="#inicio">Cancelar</a>
+      </div>
+    </section>
+
+    <!-- 4) MIS REPORTES -->
+    <section class="tarjeta">
+      <h2 id="mis-reportes">Mis Reportes</h2>
+      <div class="barra-herramientas">
+        <input placeholder="Buscar…" />
+        <select>
+          <option>Todos</option>
+          <option>Pendiente</option>
+          <option>En Progreso</option>
+          <option>Resuelto</option>
+        </select>
+        <select>
+          <option>Todas</option>
+          <option>Baja</option>
+          <option>Media</option>
+          <option>Alta</option>
+        </select>
+      </div>
+
+      <div class="lista">
+        <article class="elemento">
+          <h3>Bache en Av. Central</h3>
+          <p class="tenue">#R-1024 · 12/09 · Ubicación: 742</p>
+          <div class="fila">
+            <span class="etiqueta aviso-fondo">Estado: En Progreso</span>
+            <span class="etiqueta peligro-fondo">Prioridad: Alta (IA)</span>
+          </div>
+          <p>Hundimiento del asfalto en la esquina.</p>
+          <a class="boton" href="#detalle">Ver detalle</a>
+        </article>
+
+        <article class="elemento">
+          <h3>Lámpara rota</h3>
+          <p class="tenue">#R-1025 · 13/09 · Ubicación: Plaza Norte</p>
+          <div class="fila">
+            <span class="etiqueta neutra-fondo">Estado: Pendiente</span>
+            <span class="etiqueta info-fondo">Prioridad: Media (IA)</span>
+          </div>
+          <p>Sector sin iluminación.</p>
+          <a class="boton" href="#detalle">Ver detalle</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5) DETALLE DE REPORTE -->
+    <section class="tarjeta">
+      <h2 id="detalle">Detalle de Reporte #R-1024</h2>
+      <div class="rejilla">
+        <div class="tarjeta colspan6">
+          <h3>Datos</h3>
+          <p><strong>Tipo:</strong> Bache</p>
+          <p><strong>Ubicación:</strong> Av. Central 742</p>
+          <p><strong>Descripción:</strong> Asfalto hundido, peligro para bicicletas.</p>
+          <p><span class="etiqueta peligro-fondo">Prioridad: Alta (IA)</span></p>
+        </div>
+        <div class="tarjeta colspan6">
+          <h3>Seguimiento</h3>
+          <table class="tabla">
+            <thead><tr><th>Fecha</th><th>Evento</th></tr></thead>
+            <tbody>
+              <tr><td>12/09</td><td>Reporte creado</td></tr>
+              <tr><td>13/09</td><td>Asignado a cuadrilla</td></tr>
+              <tr><td>14/09</td><td>En Progreso</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="fila">
+        <a class="boton" href="#mis-reportes">Volver</a>
+        <a class="boton alterno" href="#notificaciones">Ver notificaciones</a>
+      </div>
+    </section>
+
+    <!-- 6) NOTIFICACIONES -->
+    <section class="tarjeta">
+      <h2 id="notificaciones">Notificaciones</h2>
+      <div class="lista">
+        <div class="elemento">
+          <p><strong>Tu reporte #R-1024 cambió a “En Progreso”.</strong></p>
+          <p class="tenue">14/09 10:32</p>
+        </div>
+        <div class="elemento">
+          <p><strong>Tu reporte #R-1025 fue recibido.</strong></p>
+          <p class="tenue">13/09 18:07</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL CSS-ONLY -->
+  <div id="auth" class="modal-overlay" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <header class="modal-header">
+        <h2 id="auth-title">Registro</h2>
+        <a class="modal-cerrar" href="#inicio" aria-label="Cerrar">✕</a>
+      </header>
+
+      <div class="tab-panel panel-registro">
+        <label>Nombre y Apellido</label>
+        <input placeholder="Tu nombre" />
+        <label>Correo</label>
+        <input type="email" placeholder="tu@correo.com" />
+        <label>DNI</label>
+        <input placeholder="XXXXXXXX" />
+        <label>Ubicación</label>
+        <input placeholder="Calle y altura" />
+        <label>Contraseña</label>
+        <input type="password" placeholder="••••••••" />
+        <div class="fila">
+          <a class="boton primario" href="#inicio">Enviar</a>
+        </div>
+      </div>
+    </section>
+    <a class="overlay-close-area" href="#inicio" aria-label="Cerrar"></a>
+  </div>
+</body>
+</html>
