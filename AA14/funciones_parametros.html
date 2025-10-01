@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AA14</title>
+</head>
+<body>
+    <button onclick="numeroMenor()">Número entero menor</button>
+    <script type="text/javascript">
+        function numeroMenor() {
+            let num1 = parseInt(prompt("Ingrese el primer número"));
+            let num2 = parseInt(prompt("Ingrese el segundo número"));
+            let num3 = parseInt(prompt("Ingrese el tercer número"));
+            let menor = num1;
+            if (num2 < menor) {
+                menor = num2;
+            }
+            if (num3 < menor) {
+                menor = num3;
+            }
+
+            document.write("El número menor es: " + menor);
+        }
+    </script>
+</body>
+</html>
