@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AA14</title>
+</head>
+<body>
+    <button onclick="procesarVector()">Procesar Vector</button>
+
+    <script>
+        function procesarVector() {
+            let vector = [];
+            let sumaTotal = 0;
+            let sumaMayores36 = 0;
+            let cantidadMayores36 = 0;
+
+            for (let i = 0; i < 8; i++) {
+                let elemento = parseInt(prompt(`Ingrese el elemento ${i + 1}:`));
+                vector[i] = elemento;
+                sumaTotal += elemento;
+                
+                if (elemento > 36) {
+                    sumaMayores36 += elemento;
+                    cantidadMayores36++;
+                }
+            }
+
+            document.write("Resultados: <br>");
+            document.write("Suma total: " + sumaTotal + "<br>");
+            document.write("Suma de elementos mayores a 36: " + sumaMayores36 + "<br>");
+            document.write("Cantidad de valores mayores a 36: " + cantidadMayores36);
+        }
+    </script>
+</body>
+</html>

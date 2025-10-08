@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AA14</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let cantidad= 5;
+        let suma = 0;
+        let contador = 1;
+        while (contador <= cantidad) {
+            let altura = parseFloat(prompt("Ingrese la altura de la persona " + contador + " en metros:"));
+            suma += altura;
+            contador++;
+        }
+        let promedio = suma / cantidad;
+        document.write("El promedio de las alturas es: " + promedio.toFixed(2) + " metros");
+    </script>
+</body>
+</html>

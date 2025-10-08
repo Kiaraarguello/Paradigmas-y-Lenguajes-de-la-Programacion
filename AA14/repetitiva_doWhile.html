@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AA14</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let suma = 0;
+        let valor;
+
+
+        do {
+            valor = parseInt(prompt("Ingrese un valor (9999 para terminar):"));
+            if (valor !== 9999) {
+                suma += valor;
+            }
+        } while (valor !== 9999);
+        document.write("El valor acumulado es: " + suma + "<br>");
+        if (suma === 0) {
+            document.write("El valor es cero");
+        } else if (suma > 0) {
+            document.write("El valor es mayor que cero");
+        } else {
+            document.write("El valor es menor que cero");
+        }
+    </script>
+</body>
+</html>

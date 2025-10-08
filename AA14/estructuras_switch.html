@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AA14</title>
+</head>
+<body>
+    <button onclick="traductor()">Traducir</button>
+
+    <script>
+        const app = document.createElement("div");
+        document.body.appendChild(app);
+
+        const s = "1. casa<br>2. mesa<br>3. perro<br>4. gato";
+        app.innerHTML = s;
+
+        function traductor() {
+            const t = prompt("Ingresa el número a traducir (1-4):", "1");
+            const n = Number(t);
+            let traduccion = "";
+
+            switch (n) {
+                case 1:
+                    traduccion = "house";
+                    break;
+                case 2:
+                    traduccion = "table";
+                    break;
+                case 3:
+                    traduccion = "dog";  
+                    break;
+                case 4:
+                    traduccion = "cat";
+                    break;
+                default:
+                    app.innerHTML += "<br><em>Número inválido. Probá con 1–4.</em>";
+                    return;
+            }
+
+            app.innerHTML += "<br><strong>Traducción:</strong> " + traduccion;
+        }
+    </script>
+</body>
+</html>
