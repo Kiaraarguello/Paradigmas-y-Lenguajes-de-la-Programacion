@@ -1,0 +1,138 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Hotel</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="contenedor-general">
+    <!-- Encabezado -->
+    <div class="barra-superior">
+      <div class="marca"><span class="punto"></span>Panel de Gestión Hotelera</div>
+      <div class="acciones">
+        <div class="buscador">
+          <input id="buscador" type="search" placeholder="Buscar huésped, reserva, habitación..." />
+        </div>
+        <button class="boton" id="nueva-reserva">+ Nueva reserva</button>
+      </div>
+    </div>
+
+    <!-- Indicadores -->
+    <section class="indicadores" aria-label="Indicadores" id="indicadores"></section>
+
+    <!-- Filtros -->
+    <form class="filtros" aria-label="Filtros" id="filtros">
+      <div class="campo">
+        <label for="filtro-fecha">Fecha</label>
+        <input type="date" id="filtro-fecha" />
+      </div>
+      <div class="campo">
+        <label for="filtro-hotel">Hotel</label>
+        <select id="filtro-hotel">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="filtro-estado">Estado</label>
+        <select id="filtro-estado">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div class="campo">
+        <button class="boton alternativo" type="button" id="aplicar">Aplicar filtros</button>
+      </div>
+    </form>
+
+    <!-- Tabla -->
+    <section class="tabla-general" aria-label="Reservas">
+      <div class="tabla-encabezado">
+        <h3>Reservas & Huéspedes</h3>
+        <div class="etiqueta-resultado" id="resultado-total">0 resultados</div>
+      </div>
+      <div class="tabla-responsiva">
+        <table role="table" id="tabla">
+          <thead>
+            <tr>
+              <th>Reserva</th>
+              <th>Huésped</th>
+              <th>Hotel</th>
+              <th>Habitación</th>
+              <th>Régimen</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Estado</th>
+              <th class="alinear-derecha">Total</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-tabla"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Resumen por hotel -->
+    <section class="resumen-hoteles" aria-label="Resumen por hotel" id="resumen-hoteles"></section>
+  </div>
+
+  <!-- Modal Nueva Reserva -->
+  <div class="modal-overlay" id="modal-overlay" hidden></div>
+  <div class="modal" id="modal-reserva" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-header">
+      <h3 id="modal-title">Crear nueva reserva</h3>
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">×</button>
+    </div>
+    <form class="modal-body" id="form-reserva">
+      <div class="grid-2">
+        <div class="campo">
+          <label for="res-id">ID (auto)</label>
+          <input id="res-id" type="text" disabled placeholder="Se asigna al guardar">
+        </div>
+        <div class="campo">
+          <label for="res-huesped">Huésped</label>
+          <input id="res-huesped" type="text" required placeholder="Nombre y apellido">
+        </div>
+        <div class="campo">
+          <label for="res-hotel">Hotel</label>
+          <select id="res-hotel" required></select>
+        </div>
+        <div class="campo">
+          <label for="res-habitacion">Habitación</label>
+          <input id="res-habitacion" type="text" required placeholder="Ej: 207">
+        </div>
+        <div class="campo">
+          <label for="res-regimen">Régimen</label>
+          <select id="res-regimen" required>
+            <option value="BB">BB</option>
+            <option value="HB">HB</option>
+            <option value="AI">AI</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="res-estado">Estado</label>
+          <select id="res-estado" required></select>
+        </div>
+        <div class="campo">
+          <label for="res-checkin">Check-in</label>
+          <input id="res-checkin" type="date" required>
+        </div>
+        <div class="campo">
+          <label for="res-checkout">Check-out</label>
+          <input id="res-checkout" type="date" required>
+        </div>
+        <div class="campo">
+          <label for="res-total">Total (ARS)</label>
+          <input id="res-total" type="number" min="0" step="100" value="0" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="boton alternativo" id="modal-cancelar">Cancelar</button>
+        <button type="submit" class="boton" id="modal-guardar">Guardar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>

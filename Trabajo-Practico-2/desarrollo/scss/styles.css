@@ -1,0 +1,352 @@
+@charset "UTF-8";
+:root {
+  --bg: rgb(255, 240, 224); /*beige*/
+  --vo: #2f4636; /*verde oscuro*/
+  --gr: #e6e6e6; /*gris*/
+  --vc: #bfc8a0; /*verde claro*/
+  --nrj:#d4a868; /*naranja*/
+  --ff: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --fst: 35px; /*font-sizes titulos*/
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--vo);
+  font-family: var(--ff);
+}
+
+/* ✄----------- NAVBAR ----------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* ocupa todo el ancho sin overflow */
+  width: 100%;
+  box-sizing: border-box; /* evita que el padding agregue ancho extra */
+  background: #f4ecdd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  border-bottom: 2px solid #ccc;
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+.nav-links a:hover {
+  color: #6d4c1f;
+}
+
+.btn-login {
+  text-decoration: none;
+  background: #d4a868;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 16px;
+  font-weight: 600;
+  white-space: nowrap; /* no se corta en 2 líneas */
+}
+
+.btn-login:hover {
+  filter: brightness(0.9);
+}
+
+/* espacio para que el contenido no quede debajo de la navbar */
+body {
+  padding-top: 70px;
+}
+
+/* scroll suave y offset para secciones con ancla */
+html {
+  scroll-behavior: smooth;
+}
+
+.about, .beneficios, .planes, .contacto, .clase_landing {
+  scroll-margin-top: 80px; /* compensa altura navbar en anclas */
+}
+
+/* ✄----------- LANDING ----------- */
+.img-full {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.clase_landing {
+  position: relative;
+}
+
+.img-full {
+  width: 100%;
+  display: block;
+}
+
+.landing-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-size: 60px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* sombra más marcada */
+}
+
+.landing-texto p {
+  font-size: 24px;
+  margin: 10px 0 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* también al subtítulo */
+}
+
+/* ✄----------- LANDING ----------- */
+.about {
+  overflow: hidden; /*VEEEEEEEEERR*/
+  padding: 4rem 2rem;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.about_img {
+  float: left;
+  width: 50%;
+  border-radius: 8px;
+}
+
+.about_img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about_txt {
+  float: right;
+  width: 65%;
+  max-width: 600px;
+}
+
+.about_txt h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.about_txt p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.about_txt b {
+  font-weight: 700;
+}
+
+.online {
+  background: var(--gr);
+  display: block;
+  padding: 1rem 1.4rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+/* ⭑⭒⭑⭒⭑⭒⭑⭒ Responsive  ⭑⭒⭑⭒⭑⭒⭑⭒ */
+@media (max-width: 900px) {
+  .about {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+  .about_img,
+  .about_txt {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about_txt h1 {
+    font-size: 2rem;
+  }
+  .about_txt p {
+    font-size: 1rem;
+  }
+}
+/* ⭑⭒⭑⭒⭑⭒⭑⭒ Responsive  ⭑⭒⭑⭒⭑⭒⭑⭒ */
+@media (max-width: 900px) {
+  .about {
+    padding: 40px 16px;
+    text-align: center;
+  }
+  .about_img,
+  .about_txt {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about_txt h1 {
+    font-size: 32px;
+  }
+  .about_txt p {
+    font-size: 16px;
+  }
+}
+/* ✄----------- Beneficios ----------- */
+.beneficios {
+  padding: 56px 32px 64px;
+  background: var(--bg);
+  color: var(--vo);
+}
+
+.titulo_beneficios {
+  text-align: center;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.1;
+  margin: 0 0 40px;
+  letter-spacing: 0.3px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+
+.grid_beneficios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*por defecto tiene 3 columnas*/
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tarjeta_beneficio {
+  background: var(--vc);
+  border-radius: 24px;
+  padding: 32px 32px 35.2px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* transition: lo agregue para que se agrande cuando se pone el cursor sobre él. lo busque en w3: https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition2  */
+}
+
+/*cuando se utiliza el :hover en una clase es para decir que es una pseudo clase, que se utiliza solo cuando se posa el mouse sobre esa clase. También lo utilice en la clase planes*/
+.tarjeta_beneficio:hover {
+  transform: translateY(5px); /*para que al posar el mouse sobre los beneficios se muevan 5px hacia abajo (eje y), tambien buscado en w3: https://www.w3schools.com/cssref/tryit.php?filename=trycss_func_translatey */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.media_beneficio {
+  border-radius: 18px; /*para curvear los bordes*/
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.media_beneficio img {
+  width: 100%;
+  height: 100%;
+  display: block; /* para que la imagen ocupe todo el espacio. esto se repite varias veces en el código*/
+}
+
+.texto_beneficio {
+  margin: 19.2px auto 0;
+  text-align: center;
+  font-size: 20.8px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* ⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒ Responsive ⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒ */
+@media (max-width: 1024px) { /*cuando es menos de 1024, que es lo estandar de desktop*/
+  .grid_beneficios {
+    grid-template-columns: repeat(2, 1fr);
+  } /*cuando es menor a 1024, pasa de tres columnas a 2, para que sea responsive*/
+}
+@media (max-width: 640px) {
+  .grid_beneficios {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  } /*cuando es inclusive menos a 640, como para un mobile por ejemplo, pasa a ser de dos columnas a una sola. es decir una debajo de la otra*/
+  .beneficios {
+    padding: 40px 16px;
+  }
+}
+/* ✄----------- Planes ----------- */
+.planes {
+  padding: 64px 32px;
+  background: var(--bg);
+  color: var(--vo);
+}
+
+.titulo_planes {
+  text-align: center;
+  font-weight: 500;
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
+.grid_planes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tarjeta_plan {
+  background: var(--vc);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22); /*sombra*/
+  text-align: center;
+  transition: all 0.25s ease; /* lo agregue para que se agrande cuando se pone el cursor sobre él*/
+  cursor: pointer; /* cambie el cursor para que el usuario entienda que se debe apretar para entrar. lo agregue de w3: https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
+}
+
+.tarjeta_plan:hover {
+  background: var(--bg);
+  transform: translateY(10px);
+  box-shadow: 0 14px 36px var(--vo);
+}
+
+.tarjeta_plan h3 {
+  font-size: 25.6px;
+  margin-bottom: 19.2px;
+}
+
+.tarjeta_plan ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0 0 32px;
+  font-size: 17.6px;
+  line-height: 1.5;
+}
+
+.tarjeta_plan ul li::before {
+  content: "• "; 
+}
+
+.tarjeta_plan .precio {
+  font-size: 22.4px;
+  font-weight: bold;
+}
+
+/* ⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒ Responsive ⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒⭑⭒ */
+@media (max-width: 900px) {
+  .grid_planes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .grid_planes {
+    grid-template-columns: 1fr;
+  }
+}

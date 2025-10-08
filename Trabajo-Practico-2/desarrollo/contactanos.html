@@ -1,0 +1,70 @@
+<!-- contactanos.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Alondra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/contactanos.css">
+    <script defer src="js/contactanos.js"></script>
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html#landing">Alondra</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#beneficios">Beneficios</a></li>
+        <li><a href="index.html#planes">Planes</a></li>
+        <li><a href="contactanos.html">Contactanos</a></li>
+      </ul>
+      <a href="login.html" class="btn-login">Login</a>
+    </nav>
+
+    <!-- CONTACTO -->
+    <section class="contacto">
+      <div class="contacto__wrap">
+        <div class="contacto__img">
+          <img src="imagenes/contactanos.png" alt="Recepción de hotel">
+        </div>
+
+        <div class="contacto__card">
+          <h2 id="contactanos" class="contacto__title">CONTACTANOS</h2>
+
+          <!-- alertas dinámicas -->
+          <div class="form-alert" aria-live="polite"></div>
+
+          <form class="contacto__form" action="#" method="post" novalidate>
+            <div class="fila fila--2">
+              <input type="text" name="nombre" placeholder="Nombre" required>
+              <input type="text" name="apellido" placeholder="Apellido" required>
+            </div>
+
+            <div class="fila">
+              <input type="text" name="hotel" placeholder="Nombre del Hotel" required>
+            </div>
+
+            <div class="fila">
+              <input type="text" name="direccion" placeholder="Dirección" required>
+            </div>
+
+            <div class="fila">
+              <input type="email" name="email" placeholder="Correo Electrónico" required>
+            </div>
+
+            <label class="consulta__label" for="consulta">Consulta</label>
+            <div class="fila">
+              <textarea id="consulta" name="consulta" rows="6" placeholder="Escribí tu consulta..." required></textarea>
+            </div>
+
+            <div class="fila fila--btn">
+              <button type="submit" class="btn-enviar">ENVIAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

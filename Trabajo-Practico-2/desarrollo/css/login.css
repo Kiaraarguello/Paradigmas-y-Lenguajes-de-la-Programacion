@@ -1,0 +1,102 @@
+:root {
+  --bg: #fff0e0;
+  --vo: #2f4636;
+  --gr: #e6e6e6;
+  --vc: #bfc8a0;
+  --nrj: #d4a868;
+  --fuente: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--vo);
+  font-family: var(--fuente);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ===== LOGIN ===== */
+.login__tarjeta {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 6px 20px var(--vo);
+  text-align: center;
+  border: 2px solid var(--vc);
+}
+
+.login__titulo {
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+  color: var(--vo);
+  position: relative;
+}
+
+.login__titulo::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--nrj);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.login__tarjeta input {
+  width: 100%;
+  background: var(--gr);
+  border: 2px solid transparent;
+  outline: none;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  color: var(--vo);
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.login__tarjeta input:focus {
+  border-color: var(--nrj);
+  box-shadow: 0 0 8px var(--nrj);
+}
+
+.login__boton {
+  width: 100%;
+  background: var(--nrj);
+  color: var(--bg);
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login__boton:hover {
+  background: var(--vo);
+  color: var(--bg);
+}
+
+.login__enlace {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--vo);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.login__enlace:hover {
+  color: var(--nrj);
+  text-decoration: underline;
+}
+
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/login.css%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF%22,%22file%22:%22login.css%22%7D */

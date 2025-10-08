@@ -1,0 +1,584 @@
+@charset "UTF-8";
+/* ⭒⭑⭒⭑⭒⭑⭒⭑variables ⭒⭑⭒⭑⭒⭑⭒⭑⭒⭑*/
+:root {
+  --bg: #fff0e0;
+  --vo: #2f4636;
+  --gr: #e6e6e6;
+  --vc: #bfc8a0;
+  --nrj: #d4a868;
+  --card: #ffffff;
+  --muted: #5a6d62;
+  --ok: #2e7d32;
+  --warn: #d98d00;
+  --err: #b00020;
+  --info: #00639a;
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--vo);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Layout 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯*/
+.contenedor-general {
+  max-width: 1700px; /* temporal: futura barra lateral */
+  margin: 0 auto;
+  padding: 20px 16px 56px;
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Encabezado 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯*/
+.barra-superior {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.marca {
+  font-size: clamp(1.1rem, 1.4vw + 0.6rem, 1.8rem);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marca .punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--nrj);
+  box-shadow: 0 0 0 4px rgba(212, 168, 104, 0.25);
+}
+
+.acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--gr);
+  border-radius: 999px;
+  padding: 8px 12px;
+  min-width: 280px;
+  box-shadow: var(--shadow);
+}
+
+.buscador input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  flex: 1;
+  color: var(--vo);
+  font-size: 0.95rem;
+}
+
+.boton {
+  border: 1px solid var(--vo);
+  background: var(--vo);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.2s ease, opacity 0.2s;
+  box-shadow: var(--shadow);
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.boton.alternativo {
+  background: #fff;
+  color: var(--vo);
+  border-color: var(--gr);
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Indicadores (KPIs)  𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 10px 0 18px;
+}
+
+.indicador {
+  background: var(--card);
+  border: 1px solid var(--gr);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  min-height: 88px;
+}
+
+.indicador .etiqueta {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.indicador .valor {
+  font-size: clamp(1.2rem, 1.2vw + 0.8rem, 1.8rem);
+  font-weight: 700;
+}
+
+.indicador .variacion {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: var(--ok);
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Filtros 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+.filtros {
+  background: var(--card);
+  border: 1px solid var(--gr);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  border: 1px solid var(--gr);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--vo);
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Tabla 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+.tabla-general {
+  background: var(--card);
+  border: 1px solid var(--gr);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tabla-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gr);
+  background: linear-gradient(0deg, #fff, #fff8f0);
+}
+
+.tabla-encabezado h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.tabla-responsiva {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  border-bottom: 1px solid var(--gr);
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 12px 12px;
+}
+
+tbody td {
+  border-bottom: 1px solid var(--gr);
+  padding: 12px 12px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+tbody tr:hover {
+  background: #fffaf3;
+}
+
+.etiqueta-estado {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border: 1px solid transparent;
+}
+
+/* Estados */
+.estado-ok {
+  background: #e7f6ea;
+  color: var(--ok);
+  border-color: #c8e9cd;
+}
+
+.estado-advertencia {
+  background: #fff4dd;
+  color: var(--warn);
+  border-color: #ffe2ae;
+}
+
+.estado-info {
+  background: #e8f3fc;
+  color: var(--info);
+  border-color: #c9e4f9;
+}
+
+.estado-error {
+  background: #ffe8eb;
+  color: var(--err);
+  border-color: #ffd0d8;
+}
+
+.estado-enespera {
+  background: #eef0e4;
+  color: #44503a;
+  border-color: #d7dcc4;
+}
+
+.etiqueta-resultado {
+  background: #f6f6f6;
+  border: 1px solid var(--gr);
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.simbolo-huesped {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--vc);
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow);
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Resumen por hotel  𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+.resumen-hoteles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.tarjeta-hotel {
+  background: var(--card);
+  border: 1px solid var(--gr);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+}
+
+.tarjeta-hotel h4 {
+  margin: 0 0 8px 0;
+}
+
+.barra-ocupacion {
+  height: 10px;
+  background: #f2f2f2;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--gr);
+}
+
+.barra-ocupacion > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vc), var(--nrj));
+  width: 62%;
+}
+
+.info-hotel {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Responsivo  𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+@media (max-width: 1024px) {
+  .indicadores {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .filtros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .resumen-hoteles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .barra-superior {
+    grid-template-columns: 1fr;
+  }
+  .acciones {
+    justify-content: flex-start;
+  }
+  .indicadores {
+    grid-template-columns: 1fr 1fr;
+  }
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+  .resumen-hoteles {
+    grid-template-columns: 1fr;
+  }
+  .buscador {
+    min-width: 100%;
+  }
+  .boton {
+    width: 100%;
+  }
+}
+/* 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 Utilidades 𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯𖣯 */
+.detalle {
+  color: var(--muted);
+}
+
+.alinear-derecha {
+  text-align: right;
+}
+
+.etiqueta-estado {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+}
+.etiqueta-estado.estado-info {
+  background: #e6f0ff;
+  color: #1f57d6;
+}
+.etiqueta-estado.estado-advertencia {
+  background: #fff4e5;
+  color: #b85c00;
+}
+.etiqueta-estado.estado-ok {
+  background: #e7f7ed;
+  color: #18794e;
+}
+.etiqueta-estado.estado-neutral {
+  background: #eef2f7;
+  color: #475569;
+}
+.etiqueta-estado.estado-error {
+  background: #ffe6e6;
+  color: #b42318;
+}
+
+.barra-ocupacion {
+  width: 100%;
+  height: 8px;
+  background: #edf2f7;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.barra-ocupacion span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
+  transition: width 0.4s ease;
+}
+
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+}
+.link:hover {
+  opacity: 0.8;
+}
+
+.tabla-responsiva {
+  overflow-x: auto;
+}
+
+/* ===== Modal ===== */
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
+.modal {
+  position: fixed;
+  inset: 5% 50% auto;
+  transform: translateX(-50%);
+  width: min(1100px, 92vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+/*  FIX: respetar el atributo hidden del HTML */
+.modal[hidden],
+.modal-overlay[hidden] {
+  display: none !important;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+.modal-close:hover {
+  background: #f3f4f6;
+}
+
+.modal-body {
+  padding: 1rem 1.25rem;
+  overflow: auto;
+}
+.modal-body .campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+.modal-body .campo label {
+  font-size: 0.9rem;
+  color: #334155;
+}
+.modal-body .campo input, .modal-body .campo select {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.modal-body .campo input:focus, .modal-body .campo select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+@media (max-width: 720px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.boton {
+  background: #2563eb;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+.boton:hover {
+  filter: brightness(1.05);
+}
+.boton.alternativo {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.tabla-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alinear-derecha {
+  text-align: right;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/dashboard.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EAAI;;;AAEJ;EAAa;;;AAEb;EACE;EACA;EACA;EACA;EACA;;;AAGF;EAAI;;;AAEJ;AACA;EACE;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EAAoB;;;AAEpB;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EAAiB;;;AAEjB;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;EAAqB;EAAqB;EAAoB;;;AAC9D;EAAqB;EAAqB;EAAoB;;;AAC9D;EAAqB;EAAqB;EAAoB;;;AAC9D;EAAqB;EAAqB;EAAoB;;;AAC9D;EAAqB;EAAqB;EAAoB;;;AAE9D;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;;AAGF;EAAoB;;;AAEpB;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;EACE;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;;AAGrB;EACE;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;EACnB;IAAmB;;;AAIrB;AACA;EAAmB;;;AACnB;EAAmB;;;AAEnB;EACE;EACA;EACA;EACA;;AACA;EAAgB;EAAqB;;AACrC;EAAuB;EAAqB;;AAC5C;EAAc;EAAqB;;AACnC;EAAmB;EAAqB;;AACxC;EAAiB;EAAqB;;;AAGxC;EACE;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;;AAIJ;EACE;EACA;EACA;EACA;EACA;EACA;;AACA;EAAU;;;AAGZ;EAAoB;;;AAEpB;AACA;EAAa;;;AAEb;EACE;EAAiB;EACjB;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AACA;AAAA;EAEE;;;AAGF;EACE;EAAe;EAAqB;EACpC;EAAuB;;AACvB;EAAK;EAAW;;;AAGlB;EACE;EAAyB;EAAW;EAAmB;EACvD;EAAiB;EAAuB;;AACxC;EAAU;;;AAGZ;EACE;EAAuB;;AACvB;EACE;EAAe;EAAwB;EAAa;;AACpD;EAAQ;EAAkB;;AAC1B;EACE;EAAsB;EAA2B;EACjD;;AACA;EAAU;EAA4B;;;AAK5C;EACE;EAAe;EAAkD;;AACjE;EAFF;IAGI;;;;AAIJ;EACE;EAAe;EAA2B;EAC1C;EAAwB;;;AAG1B;EACE;EAAqB;EAAa;EAAW;EAAqB;EAAsB;EACxF;EAAkB;;AAClB;EAAU;;AACV;EAAgB;EAAqB;;;AAGvC;EAAoB;EAAc;EAA+B;;;AACjE;EAAmB%22,%22file%22:%22dashboard.css%22%7D */
