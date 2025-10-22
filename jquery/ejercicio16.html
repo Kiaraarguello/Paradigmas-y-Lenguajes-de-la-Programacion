@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio dblclick</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="caja"></div>
+  <script>
+    $(document).ready(function() {
+      $("#caja").css({
+        "width": "800px",
+        "height": "70px",
+        "background-color": "lightgreen"
+      });
+
+
+      let expandido = false;
+
+
+      $("#caja").on("dblclick", function() {
+        if (!expandido) {
+          $(this).css({
+            "width": "250px",
+            "height": "250px"
+          });
+        } else {
+          $(this).css({
+            "width": "800px",
+            "height": "70px"
+          });
+        }
+        expandido = !expandido;
+      });
+    });
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Coordenadas del mouse en DIV</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 40px;
+        background: #f5f7f8;
+        }
+
+
+        h1 { font-size: 18px; margin: 0; }
+
+
+        #cuadro {
+        width: 200px;
+        height: 200px;
+        background: #021d2d;
+        border: 2px solid #2c7bb6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        }
+
+
+        #mensaje {
+        font-size: 16px;
+        color: #5d2b2b;
+        min-height: 22px;
+        }
+
+
+        .info-peq { font-size: 12px; color: #e88e8e; }
+    </style>
+</head>
+<body>
+    <h1>Coordenadas del mouse dentro del DIV (200×200)</h1>
+
+
+    <div id="cuadro" aria-label="Área de prueba">
+        <span class="info-peq">Pasa el mouse aquí</span>
+    </div>
+
+
+    <p id="mensaje">El mouse está fuera del div.</p>
+
+
+    <script>
+        (function () {
+        const cuadro = document.getElementById('cuadro');
+        const mensaje = document.getElementById('mensaje');
+
+
+        let dentro = false;
+
+
+        function setMensaje(text) {
+            mensaje.textContent = text;
+        }
+
+
+        cuadro.addEventListener('mouseenter', () => {
+            dentro = true;
+            setMensaje('Dentro del div — mueve el mouse para ver coordenadas.');
+        });
+
+
+        cuadro.addEventListener('mousemove', (e) => {
+            const rect = cuadro.getBoundingClientRect();
+
+
+            const x = Math.round(e.clientX - rect.left);
+            const y = Math.round(e.clientY - rect.top);
+
+
+            const xClamped = Math.max(0, Math.min(200, x));
+            const yClamped = Math.max(0, Math.min(200, y));
+            setMensaje(`Dentro del div — X: ${xClamped}px, Y: ${yClamped}px`);
+        });
+
+
+        cuadro.addEventListener('mouseleave', () => {
+            dentro = false;
+            setMensaje('El mouse está fuera del div.');
+        });
+
+
+        window.addEventListener('mousemove', (e) => {
+            if (!dentro) {
+            const gx = Math.round(e.clientX);
+            const gy = Math.round(e.clientY);
+            setMensaje(`Fuera del div — Coordenadas globales: X: ${gx}px, Y: ${gy}px`);
+            }
+        });
+
+
+        setMensaje('El mouse está fuera del div.');
+        })();
+    </script>
+</body>
+</html>

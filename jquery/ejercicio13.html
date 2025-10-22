@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>Ejercicio 13</title>
+  <meta charset="UTF-8">
+</head>
+
+
+<body>
+  <table border="1">
+    <tr>
+      <td>casilla1,1</td>
+      <td> casilla 1,2</td>
+    </tr>
+    <tr>
+      <td>casilla 2,1</td>
+      <td>casilla 2,2</td>
+    </tr>
+  </table>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    let x = $(document);
+x.ready(inicializarEventos);
+
+
+function inicializarEventos() {
+  let x = $("td");
+  x.hover(entraMouse, saleMouse);
+}
+
+
+function entraMouse() {
+  $(this).css("background-color", "#ff0");
+}
+
+
+function saleMouse() {
+  $(this).css("background-color", "#fff");
+}
+  </script>
+</body>
+
+
+</html>

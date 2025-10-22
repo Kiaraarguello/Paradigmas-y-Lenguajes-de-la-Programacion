@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hipervínculo con jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <h2>Configurar hipervínculo</h2>
+
+  <a id="link" href="" target="_blank">(sin destino)</a>
+  <small>href actual: <span id="estado">(vacío)</span></small>
+
+  <div class="btns">
+    <button data-url="https://www.google.com" data-text="Ir a Google">Google</button>
+    <button data-url="https://es.wikipedia.org" data-text="Ir a Wikipedia">Wikipedia</button>
+    <button data-url="https://github.com" data-text="Ir a GitHub">GitHub</button>
+    <button id="quitar">Quitar href</button>
+  </div>
+
+  <script>
+    function refrescarEstado(){
+      const v = $('#link').attr('href');            
+      $('#estado').text(v ? v : '(vacío)');
+    }
+
+    $('.btns button[data-url]').on('click', function(){
+      const url = $(this).data('url');
+      const txt = $(this).data('text');
+      $('#link').attr('href', url);                 
+      $('#link').text(txt);
+      refrescarEstado();
+    });
+
+    $('#quitar').on('click', function(){
+      $('#link').removeAttr('href');               
+      $('#link').text('(sin destino)');
+      refrescarEstado();
+    });
+
+    refrescarEstado();
+  </script>
+</body>
+</html>

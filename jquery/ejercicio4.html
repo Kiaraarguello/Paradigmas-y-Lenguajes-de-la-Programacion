@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selección de elementos por tipo</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+  <ul>
+    <li>Opción número 1</li>
+    <li>Opción número 2</li>
+    <li>Opción número 3</li>
+    <li>Opción número 4</li>
+  </ul>
+
+  <script>
+    $(document).ready(function() {
+      let x = $("li");
+      x.click(function() {
+        $(this).hide();
+      });
+    });
+  </script>
+</body>
+</html>
+

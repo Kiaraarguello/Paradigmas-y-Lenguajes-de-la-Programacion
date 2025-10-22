@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <p><strong>Perro</strong>, <strong>gato</strong>, <strong>loro</strong>. Auto, edificio, avion.</p>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $('p strong').click(ocultarPalabra);
+
+        function ocultarPalabra() {
+            let palabra = $(this);
+            palabra.hide();
+        }
+    </script>
+</body>
+
+</html>

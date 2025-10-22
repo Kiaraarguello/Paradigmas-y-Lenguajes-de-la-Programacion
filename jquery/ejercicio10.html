@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mostrar contenido HTML</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("#btnHead").click(function() {
+        alert($("head").html());
+      });
+
+      $("#btnBody").click(function() {
+        $("body").html("asasas<span>asasas</span>");
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1 id="titulo">asasas<span>asasas</span></h1>
+  <p>Este es un ejemplo simple para ver el contenido del HEAD y BODY de la página.</p>
+
+  <button id="btnHead">Mostrar contenido del HEAD</button>
+  <button id="btnBody">Mostrar contenido del BODY</button>
+</body>
+</html>
